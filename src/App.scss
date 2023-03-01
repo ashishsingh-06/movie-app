@@ -1,0 +1,20 @@
+@import "./common/colors.scss";
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Golos Text', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: $primary-color;
+}
+
+.container {
+    margin: 0 40px;
+}
