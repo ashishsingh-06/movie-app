@@ -1,30 +1,23 @@
 import React, { useEffect } from "react";
 import MovieList from "../MovieList/MovieList";
-import movieApi from "../../common/apis/movieApi";
-import {APIKey} from "../../common/apis/movieApiKey";
 import {useDispatch} from 'react-redux';
-import { addMovies } from "../../features/movies/movieSlice";
+import { addMovies, fetchMovies, fetchSeries } from "../../features/movies/movieSlice";
+import './Home.scss';
 
 const Home = () => {
 
     const dispatch = useDispatch();
-    const movieText = 'harry';
 
     useEffect(()=>{
-        const fetchMovies = async() => {
-            const response = await movieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`).catch((err)=>{
-                console.log("error ", err);
-            });
-            console.log('res',response);
-
-            dispatch(addMovies(response.data));
-        }
-        fetchMovies()
-    },[]);
+        dispatch(fetchMovies())
+        dispatch(fetchSeries())
+    },[dispatch]);
 
     return (
         <div className="home">
-            <div className="banner-image"></div>
+            <div className="banner-image">
+                <img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" alt="banner"/>
+            </div>
             <MovieList></MovieList>
         </div>
     )
