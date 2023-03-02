@@ -22,7 +22,7 @@ export const fetchSeries = createAsyncThunk('movie/fetchSeries', async () => {
 });
 
 export const fetchMovieOrSeriesDetail = createAsyncThunk('movie/fetchMovieOrSeriesDetail', async (imdbId) => {
-    return movieApi.get(`?apiKey=${APIKey}&i=${imdbId}$Plot=full`)
+    return movieApi.get(`?apiKey=${APIKey}&i=${imdbId}&Plot=full`)
         .then((res) => res.data);
 });
 
@@ -30,9 +30,9 @@ export const movieSlice = createSlice({
     name: 'movie',
     initialState: initialState,
     reducers: {
-        addMovies(state, action){
-            state.movies = action.payload;
-        },
+        removeSelectedMovieOrSeries: (state) => {
+            state.selectedMovieOrShow = {}
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchMovies.pending, (state) => {
@@ -74,4 +74,5 @@ export const movieSlice = createSlice({
 export default movieSlice.reducer;
 export const getAllMovies = (state) => state.movies.movies
 export const getAllSeries = (state) => state.movies.series
-export const {addMovies} = movieSlice.actions;
+export const getSelectedMovieOrSeries = (state) => state.movies.selectedMovieOrShow
+export const {removeSelectedMovieOrSeries} = movieSlice.actions;
