@@ -5,7 +5,6 @@ const Footer = () => {
 
     return (
         <div className="footer">
-            <div>Movies</div>
         </div>
     )
 }

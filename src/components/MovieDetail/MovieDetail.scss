@@ -2,11 +2,17 @@
 
 .movie-details {
     margin-top: 20px;
+    padding-bottom: 100px;
     display: flex;
     justify-content: space-evenly;
     color: $font-primary;
     font-weight: 400;
     height: 100%;
+
+    @media screen and (max-width: 700px) {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 .movie-rating {

@@ -9,14 +9,13 @@ const initialState = {
     selectedMovieOrShow: {}
 }
 
-export const fetchMovies = createAsyncThunk('movie/fetchMovies', async () => {
-    const movieText = "harry";
+export const fetchMovies = createAsyncThunk('movie/fetchMovies', async (movieText) => {
     return movieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
         .then((res)=>res.data)
 });
 
-export const fetchSeries = createAsyncThunk('movie/fetchSeries', async () => {
-    const seriesText = 'harry';
+export const fetchSeries = createAsyncThunk('movie/fetchSeries', async (seriesText) => {
+    // const seriesText = 'harry';
     return movieApi.get(`?apiKey=${APIKey}&s=${seriesText}&type=series`)
         .then((res) => res.data);
 });

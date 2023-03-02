@@ -1,0 +1,16 @@
+@import '../../common/colors.scss';
+
+.page-not-found {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: $font-primary;
+    
+    h2 {
+        font-size: 50px;
+        font-family: 'Tilt Prism', 'sans-serif', cursive;
+    }
+}

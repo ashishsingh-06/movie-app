@@ -1,11 +1,48 @@
+@import '../../common/colors.scss';
+
 .home {
     margin-bottom: 100px;
 }
 
 .banner-image{
+    position: relative;
     img {
         width: 100%;
         height: 200px;
         object-fit: cover;
+    }
+}
+
+.search-bar {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2%;
+
+    input {
+        font-family: inherit;
+        height: 40px;
+        padding: 0px 10px;
+        border: 0px;
+        color: $font-primary;
+        background-color: rgba(0,0,0,0.9);
+        font-size: 18px;
+        border-radius: 5px;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        font-family: inherit;
+        font-size: 18px;
+        border: 0px;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.9);
+        color: $font-primary;
+        cursor: pointer;
+        margin-left: 5px;
+        padding: 8px 18px;
+        margin-top: 5px;
     }
 }
